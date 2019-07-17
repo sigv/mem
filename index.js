@@ -8,7 +8,7 @@ const defaultCacheKey = function (x) {
 		return x;
 	}
 
-	return JSON.stringify(arguments);
+	return JSON.stringify(arguments); // eslint-disable-line prefer-rest-params
 };
 
 module.exports = (fn, opts) => {
@@ -19,7 +19,7 @@ module.exports = (fn, opts) => {
 
 	const memoized = function () {
 		const cache = cacheStore.get(memoized);
-		const key = opts.cacheKey.apply(null, arguments);
+		const key = opts.cacheKey.apply(null, arguments); // eslint-disable-line prefer-rest-params
 
 		if (cache.has(key)) {
 			const c = cache.get(key);
@@ -29,7 +29,7 @@ module.exports = (fn, opts) => {
 			}
 		}
 
-		const ret = fn.apply(null, arguments);
+		const ret = fn.apply(null, arguments); // eslint-disable-line prefer-spread, prefer-rest-params
 
 		cache.set(key, {
 			data: ret,

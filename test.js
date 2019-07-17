@@ -1,6 +1,6 @@
 import test from 'ava';
 import delay from 'delay';
-import m from './';
+import m from '.';
 
 test('memoize', t => {
 	let i = 0;
@@ -75,7 +75,7 @@ test('promise support', async t => {
 });
 
 test('preserves the original function name', t => {
-	t.is(m(function foo() {}).name, 'foo'); // eslint-disable-line func-names, prefer-arrow-callback
+	t.is(m(function foo() {}).name, 'foo'); // eslint-disable-line func-names
 });
 
 test('.clear()', t => {
